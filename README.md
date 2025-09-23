@@ -1,1 +1,35 @@
 # Documentacion de aplicacion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/344fcabd-82fd-48e6-b675-624702a13748" />
+
