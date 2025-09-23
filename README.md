@@ -5,6 +5,7 @@
 
 
 
+![BeFunky-photo (1)](https://github.com/user-attachments/assets/aef29f44-f833-49d7-a1bf-1fad6896d9aa)
 
 
 
@@ -31,5 +32,4 @@
 
 
 
-<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/344fcabd-82fd-48e6-b675-624702a13748" />
 
