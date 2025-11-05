@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block contenidos%}
+
+<div class="container">
+
+  <div class="text-center">
+    <p style="font-size: 25px">Esta app de nutricion esta pensada para ayudar a las personas con diversa Informacion
+      para esto se aplico una encuesta a mas de 30 personas para ayudarnos a diseñar mucho mejor la app
+    </p>
+  </div>
+
+  <div class="text-center">
+    <h2>¿Qué puedes encontrar ?</h2>
+  </div>
+
+
+
+
+  <div class="row py-3">
+    <div class="col-md-6">
+      <ul>
+        <li style="font-size: 30px">Dietas balanceadas</li>
+        <li style="font-size: 30px">Informacion nutrimental</li>
+        <li style="font-size: 30px">Comida saludable</li>
+        <li style="font-size: 30px">Recetas saludables</li>
+        <li style="font-size: 30px">Salud y bienestar</li>
+        <li style="font-size: 30px">Perfily metas personales</li>
+      </ul>
+    </div>
+
+
+    <div class="col-md-6"><img src="{{ url_for('static', filename='/descarga (3).webp') }}" class="img-thumbnail"
+        alt="...">
+    </div>
+  </div>
+
+  <div class="text-center">
+    <h2>¿Para que puede servir la aplicacion?</h2>
+  </div>
+
+  <p style="font-size: 20px">Una aplicación de nutrición puede servir como una herramienta integral para mejorar los
+    hábitos alimenticios y
+    cuidar la salud de las personas. Su principal función es permitir que los usuarios registren los alimentos que
+    consumen a diario, calculando las calorías y los nutrientes que ingieren para ayudarles a mantener un equilibrio
+    adecuado en su dieta. Además, estas aplicaciones suelen permitir establecer objetivos personalizados, como perder
+    peso, ganar masa muscular o simplemente mantener una alimentación más saludable, ofreciendo recomendaciones y planes
+    de comidas adaptados a cada necesidad.</p>
+
+
+  <div class="row text-center py-2">
+
+    <div class="col-md-4"><img src="{{ url_for('static', filename='/OIP (5).webp') }}" class="img-thumbnail" alt="...">
+    </div>
+
+     <div class="col-md-4"><img src="{{ url_for('static', filename='/descarga (6).webp') }}" class="img-thumbnail" alt="...">
+    </div>
+
+     <div class="col-md-4"><img src="{{ url_for('static', filename='/OIP (6).webp') }}" class="img-thumbnail" alt="...">
+    </div>
+  </div>
+
+  {% endblock %}
