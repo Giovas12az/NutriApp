@@ -1,102 +1,160 @@
 {% extends "base.html" %}
 
-{% block contenidos%}
+{% block contenidos %}
 
 <main class="container">
-    <h1 class="text-center text-primary">Registrate</h1>
-    <p style="font-size: 20px" class="text-center">Es rapido y facil</p>
-    <section>
-        <form>
+    <h1 class="text-center text-primary mt-4">Regístrate</h1>
+    <p class="text-center">Es rápido y fácil</p>
 
-            <div class="row">
-                <div class="container mt-4">
-                    {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-                    {% for category, message in messages %}
-                    <div class="alert alert-{{ 'danger' if category == 'error' else 'danger'}} alert-dismissible fade show"
-                        role="alert">
-                        {{ message }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    {% endfor %}
-                    {% endif %}
-                    {% endwith %}
+    <section>
+        <form method="POST" action="/registro">
+
+            <div class="container mt-4">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                <div class="alert alert-{{ 'danger' if category == 'error' else 'success'}} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
+
+            <section class="row col-md-6 mx-auto">
+
+                <div class="col-6 mb-3">
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre"
+                        minlength="2" maxlength="30" required value="{{request.form.get('nombre','')}}">
                 </div>
 
-                <section class="row col-md-4 mx-auto">
-                    <div class="col-6 mb-3">
-                        <label for="nombre" class="form-label"></label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre"
-                            minlegth="2" maxlegth="30" required value="{{request.form.get('nombre','')}}">
-                    </div>
+                <div class="col-6 mb-3">
+                    <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellidos"
+                        minlength="2" maxlength="30" required value="{{request.form.get('apellido','')}}">
+                </div>
 
-                    <div class="col-6 mb-3">
-                        <label for="apellido" class="form-label"></label>
-                        <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellidos"
-                            minlegth="2" maxlegth="30" required value="{{request.form.get('apellido','')}}">
-                    </div>
+                <div class="col-4 mb-3">
+                    <input type="number" class="form-control" id="edad" name="edad" placeholder="Edad"
+                        required value="{{request.form.get('edad','')}}">
+                </div>
 
-                    <div class="col-4 mb-3">
-                        <label for="edad" class="form-label"></label>
-                        <input type="number" class="form-control" id="edad" name="Edad" placeholder="Edad" minlegth="2"
-                            maxlegth="3" required value="{{request.form.get('edad','')}}">
-                    </div>
+                <div class="col-4 mb-3">
+                    <input type="number" class="form-control" id="altura" name="altura" placeholder="Altura (cm)"
+                        required value="{{request.form.get('altura','')}}">
+                </div>
 
-                    <div class="col-4 mb-3">
-                        <label for="Altura" class="form-label"></label>
-                        <input type="number" class="form-control" id="Altura" name="Altura" placeholder="Altura"
-                            minlegth="2" maxlegth="30" required value="{{request.form.get('Altura','')}}">
-                    </div>
-                    
-                    <div class="col-4 mb-3">
-                        <label for="edad" class="form-label"></label>
-                        <input type="number" class="form-control" id="edad" name="Edad" placeholder="Edad" minlegth="2"
-                            maxlegth="3" required value="{{request.form.get('edad','')}}">
+                <div class="col-4 mb-3">
+                    <input type="number" class="form-control" id="peso" name="peso" placeholder="Peso (kg)"
+                        required value="{{request.form.get('peso','')}}">
+                </div>
+
+              
+                <div class="mb-3">
+                    <label class="form-label d-block">Sexo:</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genero" id="mujer" value="Mujer" required>
+                        <label class="form-check-label" for="mujer">Mujer</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="genero" id="mujer" value="Mujer" >
-                        <label  style="font-size: 20px" class="form-check-label" for="mujer">Mujer</label>
+                        <input class="form-check-input" type="radio" name="genero" id="hombre" value="Hombre" required>
+                        <label class="form-check-label" for="hombre">Hombre</label>
                     </div>
+                </div>
 
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="genero" id="hombre" value="Hombre" >
-                        <label  class="form-check-label sizeFont20" for="hombre">Hombre</label>
-                    </div>
-
-                    <select class="form-select" class="mb-3 "  aria-label="Default select example">
-                        <option selected>Nivel de actividad fisica</option>
-                        <option value="1">Sedentario (poco o ningun ejercicio)</option>
-                        <option value="2">Actividad ligera(Ejercicio leve o ejercicio ocasional)</option>
-                        <option value="3">Moderada(Actividad regular)</option>
-                        <option value="3">Alta(Ejercicio intenso o muy activo)</option>
+                
+                <div class="mb-3">
+                    <select class="form-select" name="actividad" required>
+                        <option selected disabled>Nivel de actividad física</option>
+                        <option value="1">Sedentario (poco o ningún ejercicio)</option>
+                        <option value="2">Actividad ligera (ejercicio leve u ocasional)</option>
+                        <option value="3">Moderada (actividad regular)</option>
+                        <option value="4">Alta (ejercicio intenso o muy activo)</option>
                     </select>
+                </div>
 
-                    <div class="mb-2">
-                        <label for="numero" class="form-label"></label>
-                        <input type="text" class="form-control" id="numero"
-                            placeholder="Numero de celular o correo electronico" minlegth="5" maxlegth="15" required
-                            value="{{request.form.get('numero','')}}">
-                    </div>
+               
+                <div class="mb-3">
+                    <input type="email" class="form-control" id="email" name="email"
+                        placeholder="Correo electrónico" required
+                        value="{{request.form.get('email','')}}">
+                </div>
 
-                    <div class="mb-2">
-                        <label for="pass" class="form-label"></label>
-                        <input type="password" class="form-control rounded-pill" id="pass" required
-                            value="{{request.form.get('pass','')}}" placeholder="Contraseña nueva" minlegth="8">
-                        <div id="passwordHelp" class="form-text" style="font-size: 15px">Mínimo 8 caracteres.</div>
-                    </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="pass" name="password"
+                        placeholder="Contraseña nueva" minlength="8" required>
+                    <div id="passwordHelp" class="form-text">Mínimo 8 caracteres.</div>
+                </div>
 
-                    <div class="mb-2">
-                        <label for="pass" class="form-label"></label>
-                        <input type="password" class="form-control rounded-pill" id="confirm" required
-                            value="{{request.form.get('confirm','')}}" placeholder="Confirmar Contraseña" minlegth="8">
-                        <div id="passwordHelp" class="form-text" style="font-size: 15px">Mínimo 8 caracteres.</div>
-                    </div>
+                <div class="mb-4">
+                    <input type="password" class="form-control" id="confirm" name="confirm"
+                        placeholder="Confirmar contraseña" minlength="8" required>
+                </div>
 
-                    
-                    <button type="submit" class="btn btn-primary ">Registrar</button>
+                <hr class="my-4">
 
-                    <a style="font-size: 20px" class="text-center " href="/inicio">¿Ya tienes una cuenta?</a>
+                
+                <h4 class="text-center text-success mb-3">Objetivos, Preferencias y Restricciones</h4>
 
+              
+                <div class="mb-3">
+                    <label for="objetivo" class="form-label ">Objetivo principal:</label>
+                    <select name="objetivo" id="objetivo" class="form-select" required>
+                        <option value="" selected disabled>Selecciona una opción</option>
+                        <option value="bajar_peso">Bajar de peso</option>
+                        <option value="aumentar_masa">Aumentar masa muscular</option>
+                        <option value="mantener_peso">Mantener peso</option>
+                        <option value="mejorar_digestion">Mejorar digestión</option>
+                        <option value="control_condicion">Controlar una condición (diabetes, hipertensión, etc.)</option>
+                    </select>
+                </div>
 
-                    {% endblock %}
+                
+                <div class="mb-3">
+                    <label for="dieta" class="form-label ">Tipo de dieta o preferencia alimentaria:</label>
+                    <select name="dieta" id="dieta" class="form-select" required>
+                        <option value="" selected disabled>Selecciona tu tipo de dieta</option>
+                        <option value="normal">Sin restricciones</option>
+                        <option value="vegetariana">Vegetariana</option>
+                        <option value="vegana">Vegana</option>
+                        <option value="keto">Keto</option>
+                        <option value="mediterranea">Mediterránea</option>
+                        <option value="otra">Otra</option>
+                    </select>
+                </div>
+
+             
+                <div class="mb-3">
+                    <label for="alergias" class="form-label">Alergias alimentarias:</label>
+                    <input type="text" name="alergias" id="alergias" class="form-control"
+                        placeholder="Ejemplo: maní, mariscos, huevo..."
+                        value="{{request.form.get('alergias','')}}">
+                    <div class="form-text">Deja vacío si no tienes alergias.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="intolerancias" class="form-label ">Intolerancias:</label>
+                    <input type="text" name="intolerancias" id="intolerancias" class="form-control"
+                        placeholder="Ejemplo: lactosa, gluten..."
+                        value="{{request.form.get('intolerancias','')}}">
+                </div>
+
+              
+                <div class="mb-3">
+                    <label for="no_gusta" class="form-label ">Alimentos que no te gustan:</label>
+                    <textarea name="no_gusta" id="no_gusta" class="form-control" rows="2"
+                        placeholder="Ejemplo: brócoli, pescado, cebolla...">{{request.form.get('no_gusta','')}}</textarea>
+                </div>
+
+              
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary px-4">Registrar</button>
+                </div>
+            </section>
+
+        </form>
+    </section>
+</main>
+
+{% endblock %}
