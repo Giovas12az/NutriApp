@@ -9,18 +9,7 @@
     <section>
         <form method="POST" action="/registro">
 
-            <div class="container mt-4">
-                {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                {% for category, message in messages %}
-                <div class="alert alert-{{ 'danger' if category == 'error' else 'success'}} alert-dismissible fade show" role="alert">
-                    {{ message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                {% endfor %}
-                {% endif %}
-                {% endwith %}
-            </div>
+            
 
             <section class="row col-md-6 mx-auto">
 
@@ -49,7 +38,7 @@
                         required value="{{request.form.get('peso','')}}">
                 </div>
 
-              
+            
                 <div class="mb-3">
                     <label class="form-label d-block">Sexo:</label>
                     <div class="form-check form-check-inline">
@@ -74,7 +63,7 @@
                     </select>
                 </div>
 
-               
+
                 <div class="mb-3">
                     <input type="email" class="form-control" id="email" name="email"
                         placeholder="Correo electrónico" required
@@ -97,7 +86,7 @@
                 
                 <h4 class="text-center text-success mb-3">Objetivos, Preferencias y Restricciones</h4>
 
-              
+
                 <div class="mb-3">
                     <label for="objetivo" class="form-label ">Objetivo principal:</label>
                     <select name="objetivo" id="objetivo" class="form-select" required>
@@ -124,7 +113,7 @@
                     </select>
                 </div>
 
-             
+
                 <div class="mb-3">
                     <label for="alergias" class="form-label">Alergias alimentarias:</label>
                     <input type="text" name="alergias" id="alergias" class="form-control"
@@ -140,14 +129,14 @@
                         value="{{request.form.get('intolerancias','')}}">
                 </div>
 
-              
+
                 <div class="mb-3">
                     <label for="no_gusta" class="form-label ">Alimentos que no te gustan:</label>
                     <textarea name="no_gusta" id="no_gusta" class="form-control" rows="2"
                         placeholder="Ejemplo: brócoli, pescado, cebolla...">{{request.form.get('no_gusta','')}}</textarea>
                 </div>
 
-              
+
                 <div class="text-center mt-4">
                     <button type="submit" class="btn btn-primary px-4">Registrar</button>
                 </div>

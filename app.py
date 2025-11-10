@@ -4,37 +4,36 @@ from flask import Flask,render_template,url_for , request, redirect, flash, sess
 app = Flask(__name__)
 app.secret_key = '2423415414'
 
-Usuarios_Registrados = {
-    'admin@correo.com': {
-        'password': 'Admin123',
-        'nombre': 'Gio insano',
-        'fecha_nacimiento': '2009-11-19'
-    }
-}
+
+Usuarios_Registrados = {}
 
 @app.route('/registro', methods=['GET', 'POST'])
 def registro():
     if request.method == 'POST':
-        nombres = request.form.get('nombres')
+        nombres = request.form.get('nombre')
         apellido = request.form.get('apellido')
-        email = request.form.get('numero')
-        contraseña = request.form.get('pass')  
+        email = request.form.get('email')
+        contraseña = request.form.get('password')  
         confirmarcontraseña = request.form.get('confirm')  
-        dia = request.form.get('dia')
-        mes = request.form.get('Mes')
-        año = request.form.get('Año')
-
+        
         if contraseña != confirmarcontraseña:
             flash("Las contraseñas no coinciden.", "error")
             return redirect(url_for('registro'))
+        
+        if email in Usuarios_Registrados:
+            flash("Este email ya está registrado.", "error")
+            return redirect(url_for('registro'))
 
+        
+        Usuarios_Registrados[email] = {
+            'nombre': nombres + ' ' + apellido,
+            'password': contraseña,
+        }
 
-        print(f"Nuevo registro: {nombres} {apellido} - {email}")
         flash("Registro exitoso. Ahora puedes iniciar sesión.", "success")
         return redirect(url_for('inicio'))
 
     return render_template('registro.html')
-
 
 @app.route('/Validalogin', methods=['POST'])
 def Validalogin():
@@ -43,7 +42,7 @@ def Validalogin():
 
     if not email or not password:
         flash('Por favor ingresa email y contraseña', 'error')
-
+        return redirect(url_for('inicio'))
 
     if email in Usuarios_Registrados:
         usuario = Usuarios_Registrados[email]
@@ -60,14 +59,11 @@ def Validalogin():
 
     return redirect(url_for('inicio'))
 
-
 @app.route('/logout')
 def logout():
     session.clear()
     flash(f'Has cerrado sesión correctamente', 'info')
     return redirect(url_for('inicio'))
-
-
 
 @app.route('/')
 def base():
@@ -77,7 +73,8 @@ def base():
 def inicio():
     return render_template('inicio.html')
 
-
+if __name__ == '__main__':
+    app.run(debug=True)
 
 
 if __name__ == '__main__':
