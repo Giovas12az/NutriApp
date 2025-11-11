@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}Cómo leer las etiquetas nutricionales - NutriApp{% endblock %}
+
+{% block contenidos %}
+<section class="container my-5">
+  <h2 class="text-center mb-4">¿Cómo leer las etiquetas nutricionales?</h2>
+
+  <div class="text-center mb-4">
+    <img src="{{ url_for('static', filename='/etiquetado-nutricional-mexico.png') }}"
+         class="img-fluid rounded"
+         alt="Etiqueta nutricional en un producto"
+         style="max-width: 600px;">
+  </div>
+
+  <div class="card p-4">
+    <p>
+      Saber leer una etiqueta nutricional te ayuda a tomar mejores decisiones sobre lo que comes.
+      Las etiquetas muestran la cantidad de energía y nutrientes que contiene un alimento, por cada porción.
+    </p>
+
+    <h4 class="mt-4">Tamaño de la porción</h4>
+    <p>
+      Es lo primero que debes revisar. Indica la cantidad del producto a la que se refieren los valores de la tabla.
+      Si comes más de una porción, estás consumiendo más calorías, azúcar, grasa y sodio.
+    </p>
+
+    <h4 class="mt-4">Calorías</h4>
+    <p>
+      Muestran cuánta energía aporta una porción. No son malas, pero te ayudan a controlar tu ingesta diaria.
+      Si una porción tiene 120 kcal y comes dos, en realidad consumiste 240 kcal.
+    </p>
+
+    <h4 class="mt-4">Macronutrientes</h4>
+    <table class="table table-bordered text-center">
+      <thead class="table-success">
+        <tr>
+          <th>Nutriente</th>
+          <th>Qué hace</th>
+          <th>Qué buscar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Proteínas</strong></td>
+          <td>Forman músculos y tejidos.</td>
+          <td>Busca alimentos con buena cantidad.</td>
+        </tr>
+        <tr>
+          <td><strong>Grasas</strong></td>
+          <td>Fuente de energía y ayudan a absorber vitaminas.</td>
+          <td>Prefiere grasas buenas (insaturadas).</td>
+        </tr>
+        <tr>
+          <td><strong>Carbohidratos</strong></td>
+          <td>Principal fuente de energía.</td>
+          <td>Elige los integrales o con fibra.</td>
+        </tr>
+        <tr>
+          <td><strong>Azúcares</strong></td>
+          <td>Dan sabor, pero en exceso son dañinos.</td>
+          <td>Evita más de 10 g por porción.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 class="mt-4">Sodio (sal)</h4>
+    <p>
+      Mucho sodio puede elevar la presión arterial. Prefiere productos con menos de <strong>140 mg por porción</strong>.
+    </p>
+
+    <h4 class="mt-4">Fibra</h4>
+    <p>
+      Ayuda a la digestión y da sensación de saciedad. Busca alimentos con al menos <strong>3 g de fibra por porción</strong>.
+    </p>
+
+    <h4 class="mt-4">Ingredientes</h4>
+    <p>
+      Se listan de mayor a menor cantidad. Si los primeros son azúcar o grasa, probablemente no es un producto saludable.
+    </p>
+
+    <div class="alert alert-success mt-4">
+      <strong>Consejo final:</strong> Compara las etiquetas de distintos productos.
+      Elige los que tengan <strong>menos azúcar, sodio y grasas saturadas</strong>, y más fibra y proteínas.
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="/Educacion" class="btn btn-success">← Volver al módulo educativo</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Educación e Información - NutriApp{% endblock %}
+
+{% block contenidos %}
+<section class="container my-5">
+  <h2 class="text-center mb-4">Módulo de Educación e Información</h2>
+
+
+  <div class="card mb-4">
+    <div class="card-header bg-success text-white">
+      <h4>Artículos Educativos</h4>
+    </div>
+    <div class="card-body">
+      <div class="list-group">
+        <a href="/etiquetas" class="list-group-item list-group-item-action">
+          <h2>¿Cómo leer las etiquetas nutricionales?</h2>
+          Aprende a interpretar correctamente los valores nutricionales de los alimentos que consumes.
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          <h2>Mitos y verdades sobre las dietas de moda.</h2>
+          Descubre qué hay de cierto detrás de las dietas populares y cómo afectan tu salud.
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          <h2>Guías sobre macronutrientes y su función.</h2>
+          Conoce la importancia de los carbohidratos, proteínas y grasas en una dieta equilibrada.
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          <h2>La importancia de la hidratación, la fibra, etc.</h2>
+          Entiende por qué el agua y la fibra son fundamentales para tu bienestar diario.
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="card">
+    <div class="card-header bg-success text-white">
+      <h4>Recursos Descargables</h4>
+    </div>
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <a href="{{ url_for('static', filename='recursos/planilla_ejercicios.pdf') }}" download>
+             Planillas de ejercicios básicos para complementar la nutrición
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+{% endblock %}
+

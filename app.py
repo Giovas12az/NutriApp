@@ -26,7 +26,7 @@ def registro():
 
         
         Usuarios_Registrados[email] = {
-            'nombre': nombres + ' ' + apellido,
+            'nombre': '' + nombres,
             'password': contraseña,
         }
 
@@ -57,17 +57,30 @@ def Validalogin():
     else:
         flash('Usuario no encontrado', 'error')
 
-    return redirect(url_for('inicio'))
+    return redirect(url_for('iniciar_se'))
 
 @app.route('/logout')
 def logout():
     session.clear()
     flash(f'Has cerrado sesión correctamente', 'info')
-    return redirect(url_for('inicio'))
+    return redirect(url_for('iniciar_se'))
 
 @app.route('/')
 def base():
     return render_template('base.html')
+
+@app.route('/iniciar_se')
+def iniciar_se():
+    return render_template('iniciar_se.html')
+
+
+@app.route('/Educacion')
+def Educacion():
+    return render_template('Educacion.html')
+
+@app.route('/etiquetas')
+def etiquetas():
+    return render_template('etiquetas.html')
 
 @app.route('/inicio')
 def inicio():
