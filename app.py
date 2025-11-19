@@ -78,6 +78,10 @@ def iniciar_se():
 def Educacion():
     return render_template('Educacion.html')
 
+@app.route('/modulo_herr')
+def modulo_herr():
+    return render_template('modulo_herr.html')
+
 @app.route('/etiquetas')
 def etiquetas():
     return render_template('etiquetas.html')
