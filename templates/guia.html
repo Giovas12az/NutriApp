@@ -1,4 +1,73 @@
 {% extends "base.html" %}
 
-{% block contenidos%}
+{% block title %}Guía de macronutrientes y su función - NutriApp{% endblock %}
+
+{% block contenidos %}
+<section class="container my-5">
+
+    <h2 class="text-center mb-4">Guía de Macronutrientes y su Función</h2>
+
+    <div class="text-center mb-4">
+        <img src="{{ url_for('static', filename='/guia.jpg.jpeg') }}" 
+        class="img-fluid rounded"
+        alt="Guía de macronutrientes"
+        style="max-width: 600px;">
+    </div>
+
+    <div class="card p-4">
+        <p>
+            Los <strong>macronutrientes</strong> son los nutrientes que el cuerpo necesita en grandes cantidades para 
+            funcionar correctamente. Incluyen <strong>proteínas, carbohidratos y grasas</strong>. Cada uno tiene un rol 
+            fundamental en tu energía, tu salud y el funcionamiento óptimo de tu organismo.
+        </p>
+    </div>
+
+    <h4 class="mt-4">Tipos de macronutrientes</h4>
+    <table class="table table-bordered text-center">
+        <thead class="table-success">
+            <tr>
+                <th>Macronutriente</th>
+                <th>Qué hace</th>
+                <th>Fuentes recomendadas</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td><strong>Proteínas</strong></td>
+                <td>Construyen y reparan tejidos, músculos, piel y órganos. Importantes para hormonas y enzimas.</td>
+                <td>Pollo, pescado, huevos, legumbres, tofu, yogurt.</td>
+            </tr>
+
+            <tr>
+                <td><strong>Carbohidratos</strong></td>
+                <td>Principal fuente de energía del cuerpo y del cerebro.</td>
+                <td>Avena, arroz integral, frutas, verduras, pan integral.</td>
+            </tr>
+
+            <tr>
+                <td><strong>Grasas saludables</strong></td>
+                <td>Ayudan a absorber vitaminas, protegen órganos y aportan energía duradera.</td>
+                <td>Aguacate, nueces, aceite de oliva, salmón, semillas.</td>
+            </tr>
+
+            <tr>
+                <td><strong>Fibra (no digerible)</strong></td>
+                <td>Mejora la digestión, regula el azúcar en sangre y ayuda a la saciedad.</td>
+                <td>Frutas, verduras, granos enteros, semillas, legumbres.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4 class="mt-4">Consejos para una dieta equilibrada</h4>
+    <ul>
+        <li>Incluye un macronutriente diferente en cada comida.</li>
+        <li>Prefiere grasas saludables y evita las grasas trans.</li>
+        <li>Escoge carbohidratos complejos para energía más estable.</li>
+        <li>Consume proteínas variadas (vegetales y animales).</li>
+    </ul>
+<div class="text-center mt-4">
+    <a href="/Educacion" class="btn btn-success">← Volver al módulo educativo</a>
+    </div>
+</section>
 {% endblock %}

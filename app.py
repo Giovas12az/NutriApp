@@ -90,6 +90,21 @@ def etiquetas():
 def inicio():
     return render_template('inicio.html')
 
+@app.route('/mitos')
+def mitos():
+    return render_template('mitos.html')
+
+@app.route('/guia')
+def guia():
+    return render_template('guia.html')
+
+@app.route('/hidratacion')
+def hidratacion():
+    return render_template('hidratacion.html')
+
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 

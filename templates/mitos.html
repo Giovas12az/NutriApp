@@ -1,4 +1,71 @@
 {% extends "base.html" %}
 
-{% block contenidos%}
+{% block title %}Mitos y verdades sobre las dietas de moda - NutriApp{% endblock %}
+
+{% block contenidos %}
+<section class="container my-5">
+
+    <h2 class="text-center mb-4">Mitos y verdades sobre las dietas de moda</h2>
+
+    <div class="text-center mb-4">
+        <img src="{{ url_for('static', filename='/imagendieta.jpg.jpeg') }}" 
+        class="img-fluid rounded"
+        alt="Mitos y verdades dietas de moda"
+        style="max-width: 600px;">
+    </div>
+
+    <div class="card p-4">
+        <p>
+            En los últimos años han surgido muchas <strong>dietas de moda</strong> que prometen resultados rápidos. 
+            Sin embargo, no todo lo que circula en redes sociales o en los medios es verdad. 
+            Aquí te mostramos algunos <strong>mitos y realidades</strong> para que tomes decisiones informadas.
+        </p>
+    </div>
+
+    <h4 class="mt-4">Mitos y Verdades</h4>
+    <table class="table table-bordered text-center">
+        <thead class="table-success">
+            <tr>
+                <th>​Mito</th>
+                <th>Realidad</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td><strong>"Las dietas detox limpian tu cuerpo"</strong></td>
+                <td>Tu hígado y riñones ya realizan esa función. No necesitas jugos especiales para “desintoxicarte”.</td>
+            </tr>
+
+            <tr>
+                <td><strong>"Eliminar carbohidratos es la mejor forma de bajar de peso"</strong></td>
+                <td>Los carbohidratos son una fuente importante de energía. Lo ideal es elegir opciones saludables, no eliminarlos.</td>
+            </tr>
+
+            <tr>
+                <td><strong>"Comer después de las 6 pm engorda"</strong></td>
+                <td>Lo que importa es tu consumo total del día, no la hora específica a la que comes.</td>
+            </tr>
+
+            <tr>
+                <td><strong>"Las dietas keto funcionan para todos"</strong></td>
+                <td>No todas las personas responden igual. Puede tener riesgos si no está supervisada por un profesional.</td>
+            </tr>
+
+            <tr>
+                <td><strong>"Los productos ‘light’ siempre son más saludables"</strong></td>
+                <td>A veces tienen menos calorías pero más azúcar u otros aditivos. Siempre revisa la etiqueta.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4 class="mt-4">Conclusión</h4>
+    <p>
+        Antes de iniciar una dieta de moda, consulta con un profesional de la salud. 
+        No existe una dieta mágica: lo más efectivo es un plan equilibrado, sostenible y adaptado a tus necesidades.
+    </p>
+<div class="text-center mt-4">
+    <a href="/Educacion" class="btn btn-success">← Volver al módulo educativo</a>
+    </div>
+</section>
 {% endblock %}

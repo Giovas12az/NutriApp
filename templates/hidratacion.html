@@ -1,4 +1,81 @@
 {% extends "base.html" %}
 
-{% block contenidos%}
+{% block title %}Guía: Hidratación, Fibra y Hábitos Saludables - NutriApp{% endblock %}
+
+{% block contenidos %}
+<section class="container">
+
+    <h2 class="titulo">Guía sobre Hidratación, Fibra y Hábitos Saludables</h2>
+
+    <div class="imagen-centro">
+        <img src="{{ url_for('static', filename='hidratacion-fibra-habitos.png') }}"
+             alt="Hidratación, fibra y hábitos saludables">
+    </div>
+
+    <div class="intro">
+        <p>
+            Mantener una buena hidratación, consumir suficiente fibra y adoptar hábitos saludables 
+            es esencial para tu bienestar general. Esta guía te ayudará a entender su función y cómo 
+            integrarlos fácilmente en tu vida diaria.
+        </p>
+    </div>
+
+    <h3 class="subtitulo">Hidratación</h3>
+    <div class="card">
+        <p><strong>¿Por qué es importante?</strong><br>
+        El agua regula la temperatura, facilita la digestión, transporta nutrientes y previene la fatiga.</p>
+
+        <p><strong>Recomendación:</strong> 1.5–2 litros de agua al día, más si haces ejercicio o hace calor.</p>
+    </div>
+
+    <h3 class="subtitulo">Fibra</h3>
+    <div class="card">
+        <p><strong>¿Por qué es importante?</strong><br>
+        La fibra mejora el tránsito intestinal, ayuda a controlar el azúcar en sangre, favorece la saciedad 
+        y reduce el colesterol.</p>
+
+        <p><strong>Fuentes:</strong> frutas, verduras, avena, legumbres, semillas, granos integrales.</p>
+    </div>
+
+    <h3 class="subtitulo">Hábitos saludables</h3>
+
+    <table class="tabla">
+        <thead>
+            <tr>
+                <th>Hábito</th>
+                <th>Función</th>
+                <th>Cómo aplicarlo</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td><strong>Actividad física</strong></td>
+                <td>Mejora la circulación, el metabolismo y el estado de ánimo.</td>
+                <td>Realiza 30–45 min diarios de actividad moderada.</td>
+            </tr>
+
+            <tr>
+                <td><strong>Buen descanso</strong></td>
+                <td>Mejora el sistema inmune, regula hormonas y reduce estrés.</td>
+                <td>Duerme 7–9 horas y evita pantallas antes de dormir.</td>
+            </tr>
+
+            <tr>
+                <td><strong>Alimentación variada</strong></td>
+                <td>Aporta vitaminas, minerales y energía necesaria.</td>
+                <td>Incluye frutas y verduras de distintos colores diariamente.</td>
+            </tr>
+
+            <tr>
+                <td><strong>Evitar exceso de azúcar</strong></td>
+                <td>Evita picos de energía, inflamación y cansancio.</td>
+                <td>Prefiere agua, frutas frescas o infusiones sin azúcar.</td>
+            </tr>
+        </tbody>
+    </table>
+<div class="text-center mt-4">
+    <a href="/Educacion" class="btn btn-success">← Volver al módulo educativo</a>
+    </div>
+</section>
 {% endblock %}
