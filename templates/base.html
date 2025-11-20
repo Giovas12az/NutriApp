@@ -29,8 +29,27 @@
           <div class="navbar-nav">
             <a class="nav-link active" aria-current="page" href="/inicio">Inicio</a>
             <a class="nav-link" href="/registro">Registro</a>
+          
             <a class="nav-link active" aria-current="page" href="/Educacion">Modulo de Educacion</a>
-            <a class="nav-link active" aria-current="page" href="/modulo_herr">Modulo de herramientas</a>
+
+
+
+<div class="dropdown">
+  <button class="btn btn-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Modulo de herramientas
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>
+
+
+
+
+
+
             {% if session.get("logueado") %}
             <a class="dropdown-item text-danger" href="/logout">Cerrar sesión ({{ session['usuario'] }})</a>
             {% else %}
@@ -42,6 +61,8 @@
       </div>
     </nav>
   </header>
+
+
 
 
   <main class="container my-4">
