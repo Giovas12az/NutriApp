@@ -73,10 +73,17 @@ def base():
 def iniciar_se():
     return render_template('iniciar_se.html')
 
+@app.route('/RD')
+def RD():
+    return render_template('RD.html')
 
 @app.route('/Educacion')
 def Educacion():
     return render_template('Educacion.html')
+
+@app.route('/Analizador')
+def Analizador():
+    return render_template('Analizador.html')
 
 @app.route('/IMC', methods=['GET', 'POST'])
 def IMC():
@@ -147,13 +154,11 @@ def GCT():
             genero = request.form.get('genero')
             actividad = float(request.form.get('actividad'))
 
-           
             if genero == "Hombre":
                 tmb = (10 * peso) + (6.25 * altura) - (5 * edad) + 5
             else:
                 tmb = (10 * peso) + (6.25 * altura) - (5 * edad) - 161
 
-           
             gct = round(tmb * actividad, 2)
             tmb = round(tmb, 2)
 
@@ -206,10 +211,10 @@ def macronutrientes():
             flash("Por favor ingresa un valor válido de calorías.", "error")
 
     return render_template('macronutrientes.html',
-                           calorias=calorias,
-                           carbohidratos=carbohidratos,
-                           proteinas=proteinas,
-                           grasas=grasas)
+                            calorias=calorias,
+                            carbohidratos=carbohidratos,
+                            proteinas=proteinas,
+                            grasas=grasas)
 
 
 

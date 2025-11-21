@@ -23,14 +23,15 @@
         </div>
 
         <div class="mb-3">
-            <label class="form-label d-block">Género:</label>
+            <label class="form-label d-block">Sexo:</label>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="genero" value="Hombre" required>
-                <label class="form-check-label">Hombre</label>
+                <input class="form-check-input" type="radio" name="genero" id="mujer" value="Mujer" required>
+                <label class="form-check-label" for="mujer">Mujer</label>
             </div>
+
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="genero" value="Mujer" required>
-                <label class="form-check-label">Mujer</label>
+                <input class="form-check-input" type="radio" name="genero" id="hombre" value="Hombre" required>
+                <label class="form-check-label" for="hombre">Hombre</label>
             </div>
         </div>
 
@@ -52,8 +53,10 @@
     {% if resultado %}
     <section class="mt-4 p-3 border rounded bg-light col-md-6 mx-auto">
         <h4 class="text-center">Resultados</h4>
-        <p><h2>TMB</h2> {{ resultado }} kcal/día</p>
-        <p><h2>Calorías recomendadas (TDEE):</h2> {{ tdee }} kcal/día</p>
+        <p>
+        <h2>TMB</h2> {{ resultado }} kcal/día</p>
+        <p>
+        <h2>Calorías recomendadas (TDEE):</h2> {{ tdee }} kcal/día</p>
 
         <p class="text-secondary">
             La TMB representa las calorías mínimas necesarias en reposo.<br>
