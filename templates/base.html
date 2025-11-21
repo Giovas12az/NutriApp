@@ -27,35 +27,38 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="/inicio">Inicio</a>
-            <a class="nav-link" href="/registro">Registro</a>
-          
-            <a class="nav-link active" aria-current="page" href="/Educacion">Modulo de Educacion</a>
+          <div class="navbar-nav">
 
+    <a class="nav-link active" href="/inicio">Inicio</a>
 
+    {% if session.get("logueado") %}
+        <a class="nav-link" href="/Educacion">Módulo de Educación</a>
 
-<div class="dropdown">
-  <button class="btn btn-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Modulo de herramientas
-  </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-  </ul>
+        <div class="dropdown">
+            <button class="btn btn-white dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                Módulo de herramientas
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/IMC">IMC</a></li>
+                <li><a class="dropdown-item" href="/TMB">TMB</a></li>
+                <li><a class="dropdown-item" href="/GCT">GCT</a></li>
+                <li><a class="dropdown-item" href="/PCI">PCI</a></li>
+                <li><a class="dropdown-item" href="/macronutrientes">Macronutrientes</a></li>
+            </ul>
+        </div>
+
+        <a class="nav-link text-danger" href="/logout">
+            Cerrar sesión ({{ session['usuario'] }})
+        </a>
+
+    {% else %}
+        <a class="nav-link" href="/registro">Registro</a>
+
+        <a class="nav-link" href="/iniciar_se">Iniciar sesión</a>
+    {% endif %}
+
 </div>
 
-
-
-
-
-
-            {% if session.get("logueado") %}
-            <a class="dropdown-item text-danger" href="/logout">Cerrar sesión ({{ session['usuario'] }})</a>
-            {% else %}
-            <a class="nav-link" href="/iniciar_se">Iniciar sesion</a>
-            {% endif %}
-            <a class="nav-link disabled" aria-disabled="true"></a>
           </div>
         </div>
       </div>

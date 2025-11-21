@@ -1,13 +1,46 @@
 {% extends "base.html" %}
 {% block contenidos%}
 
-<div class="row justify-content-center text-center">
-    <form action="/" method="get">
-        <div class="col-3 px-3 py-5">
-            <label for=""> Calculadora de Índice de Masa Corporal</label>
-            <button type="button" class="btn btn-success btn-lg w-100">IMC</button>
+
+<main class="container mt-4">
+    <h1 class="text-center text-success">Calculadora de IMC</h1>
+
+    <form method="POST" class="col-md-6 mx-auto mt-4">
+
+        <div class="mb-3">
+            <label class="form-label">Peso (kg):</label>
+            <input type="number" step="0.1" name="peso" class="form-control" required>
         </div>
+
+        <div class="mb-3">
+            <label class="form-label">Altura (cm):</label>
+            <input type="number" step="0.1" name="altura" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Calcular IMC</button>
+
     </form>
+
+    {% if resultado %}
+    <section class="mt-4 p-3 border rounded bg-light col-md-6 mx-auto">
+        <h4 class="text-center">Resultado</h4>
+        <p><strong>IMC:</strong> {{ resultado }}</p>
+        <p><strong>Clasificación:</strong> {{ categoria }}</p>
+
+        {% if categoria == "Peso normal" %}
+            <p class="text-success">¡Felicidades! Tu peso está dentro del rango saludable.</p>
+        {% elif categoria == "Bajo peso" %}
+            <p class="text-warning">Tienes bajo peso. Considera consultar a un profesional de salud.</p>
+        {% elif categoria == "Sobrepeso" %}
+            <p class="text-warning">Estás en sobrepeso. Una alimentación equilibrada puede ayudarte.</p>
+        {% else %}
+            <p class="text-danger">Obesidad. Es recomendable recibir orientación médica o nutricional.</p>
+        {% endif %}
+    </section>
+    {% endif %}
+
+</main>
+
 
 
 {% endblock %}

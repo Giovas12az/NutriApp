@@ -78,9 +78,143 @@ def iniciar_se():
 def Educacion():
     return render_template('Educacion.html')
 
-@app.route('/modulo_herr')
-def modulo_herr():
-    return render_template('modulo_herr.html')
+@app.route('/IMC', methods=['GET', 'POST'])
+def IMC():
+    resultado = None
+    categoria = None
+
+    if request.method == 'POST':
+        try:
+            peso = float(request.form.get('peso'))
+            altura = float(request.form.get('altura')) / 100  
+            imc = peso / (altura ** 2)
+            imc = round(imc, 2)
+
+            if imc < 18.5:
+                categoria = "Bajo peso"
+            elif 18.5 <= imc < 25:
+                categoria = "Peso normal"
+            elif 25 <= imc < 30:
+                categoria = "Sobrepeso"
+            else:
+                categoria = "Obesidad"
+
+            resultado = imc
+
+        except:
+            flash("Por favor ingresa valores válidos", "error")
+
+    return render_template('IMC.html', resultado=resultado, categoria=categoria)
+
+@app.route('/TMB', methods=['GET', 'POST'])
+def TMB():
+    resultado = None
+    tdee = None
+
+    if request.method == 'POST':
+        try:
+            peso = float(request.form.get('peso'))
+            altura = float(request.form.get('altura'))
+            edad = int(request.form.get('edad'))
+            genero = request.form.get('genero')
+            actividad = float(request.form.get('actividad'))
+
+            if genero == "Hombre":
+                tmb = (10 * peso) + (6.25 * altura) - (5 * edad) + 5
+            else:
+                tmb = (10 * peso) + (6.25 * altura) - (5 * edad) - 161
+
+            resultado = round(tmb, 2)
+
+            tdee = round(resultado * actividad, 2)
+
+        except:
+            flash("Por favor ingresa valores válidos", "error")
+
+    return render_template('TMB.html', resultado=resultado, tdee=tdee)
+
+
+@app.route('/GCT', methods=['GET', 'POST'])
+def GCT():
+    tmb = None
+    gct = None
+
+    if request.method == 'POST':
+        try:
+            peso = float(request.form.get('peso'))
+            altura = float(request.form.get('altura'))
+            edad = int(request.form.get('edad'))
+            genero = request.form.get('genero')
+            actividad = float(request.form.get('actividad'))
+
+           
+            if genero == "Hombre":
+                tmb = (10 * peso) + (6.25 * altura) - (5 * edad) + 5
+            else:
+                tmb = (10 * peso) + (6.25 * altura) - (5 * edad) - 161
+
+           
+            gct = round(tmb * actividad, 2)
+            tmb = round(tmb, 2)
+
+        except:
+            flash("Por favor ingresa valores válidos.", "error")
+
+    return render_template('GCT.html', tmb=tmb, gct=gct)
+
+
+@app.route('/PCI', methods=['GET', 'POST'])
+def PCI():
+    peso_ideal = None
+
+    if request.method == 'POST':
+        try:
+            altura = float(request.form.get('altura'))
+            genero = request.form.get('genero')
+
+            
+            if genero == "Hombre":
+                peso_ideal = 50 + 0.9 * (altura - 152)
+            else:
+                peso_ideal = 45.5 + 0.9 * (altura - 152)
+
+            peso_ideal = round(peso_ideal, 2)
+
+        except:
+            flash("Por favor ingresa valores válidos.", "error")
+
+    return render_template('PCI.html', peso_ideal=peso_ideal)
+
+
+@app.route('/macronutrientes', methods=['GET', 'POST'])
+def macronutrientes():
+    calorias = None
+    carbohidratos = None
+    proteinas = None
+    grasas = None
+
+    if request.method == 'POST':
+        try:
+            calorias = float(request.form.get('calorias'))
+
+            
+            carbohidratos = round((0.50 * calorias) / 4, 2)  
+            proteinas = round((0.20 * calorias) / 4, 2)      
+            grasas = round((0.30 * calorias) / 9, 2)         
+
+        except:
+            flash("Por favor ingresa un valor válido de calorías.", "error")
+
+    return render_template('macronutrientes.html',
+                           calorias=calorias,
+                           carbohidratos=carbohidratos,
+                           proteinas=proteinas,
+                           grasas=grasas)
+
+
+
+
+
 
 @app.route('/etiquetas')
 def etiquetas():

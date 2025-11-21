@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block contenidos %}
+<main class="container mt-4">
+    <h1 class="text-center text-success">Calculadora de Peso Corporal Ideal (PCI)</h1>
+
+    <form method="POST" class="col-md-6 mx-auto mt-4">
+
+        <div class="mb-3">
+            <label class="form-label">Altura (cm):</label>
+            <input type="number" name="altura" step="0.1" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label d-block">Género:</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="genero" value="Hombre" required>
+                <label class="form-check-label">Hombre</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="genero" value="Mujer" required>
+                <label class="form-check-label">Mujer</label>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Calcular PCI</button>
+
+    </form>
+
+    {% if peso_ideal %}
+    <section class="mt-4 p-3 border rounded bg-light col-md-6 mx-auto">
+        <h4 class="text-center">Resultado</h4>
+        <p><strong>Peso Corporal Ideal:</strong> {{ peso_ideal }} kg</p>
+        <p class="text-secondary">
+            Este cálculo es orientativo y puede variar según edad, complexión y otros factores.
+        </p>
+    </section>
+    {% endif %}
+
+</main>
+{% endblock %}
